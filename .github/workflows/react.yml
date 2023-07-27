@@ -34,5 +34,4 @@ jobs:
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy to Elastic Beanstalk
-        run: eb deploy
+      - uses: sparkplug-app/install-eb-cli-action
