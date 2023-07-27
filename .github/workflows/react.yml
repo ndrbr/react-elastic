@@ -34,4 +34,5 @@ jobs:
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
 
-      - uses: sparkplug-app/install-eb-cli-action
+      - name: Use EB CLI
+        uses: sparkplug-app/install-eb-cli-action@v1.1.1
