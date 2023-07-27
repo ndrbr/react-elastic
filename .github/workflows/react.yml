@@ -28,11 +28,11 @@ jobs:
       - run: npm test
 
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1.7.0
+        uses: aws-actions/configure-aws-credentials@v2.2.0
         with:
           role-to-assume: arn:aws:iam::868133316193:role/GitHubAction-AssumeRoleWithAction
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Use EB CLI
-        uses: sparkplug-app/install-eb-cli-action@v1.1.1
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x "node_modules/*" -x "*.git*"
