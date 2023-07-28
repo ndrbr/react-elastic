@@ -35,7 +35,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x "node_modules/*" -x "*.git*"
+        run: zip -r deploy.zip package.json ".ebextensions" "build"
 
       - name: Generate Version Label
         id: generate_version_label
